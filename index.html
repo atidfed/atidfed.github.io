@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עתיד פדרלי | בונים את המחר</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;900&family=Rubik:wght@800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* פלטת הצבעים המקורית של ממדאני (Metro & Taxi Vibes) */
+        :root {
+            --m-yellow: #FFC900; /* צהוב מונית / מרקר */
+            --m-blue: #1D4ED8; /* כחול קובלט עמוק */
+            --m-orange: #FF5A00; /* כתום אנרגטי */
+            --m-bg: #FDFBF7; /* קרם חם ובהיר מאוד */
+            --m-dark: #0F172A; /* כחול-נייבי כמעט שחור לטקסט */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: var(--m-bg);
+            color: var(--m-dark);
+            overflow-x: hidden;
+            line-height: 1.3;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Rubik', sans-serif;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        /* אפקט ה"מרקר" שמאפיין קמפיינים צעירים */
+        .highlight-blue {
+            background-color: var(--m-blue);
+            color: white;
+            padding: 0 10px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        
+        .highlight-yellow {
+            background-color: var(--m-yellow);
+            color: var(--m-dark);
+            padding: 0 10px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        /* כפתורים עגולים וידידותיים (Pill buttons) */
+        .btn {
+            font-family: 'Rubik', sans-serif;
+            font-weight: 800;
+            font-size: 1.3rem;
+            padding: 1rem 2.5rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 50px; /* פינות עגולות לגמרי */
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s ease;
+            text-align: center;
+            box-shadow: 4px 4px 0px rgba(15, 23, 42, 0.1);
+        }
+
+        .btn-blue {
+            background: var(--m-blue);
+            color: #fff;
+        }
+
+        .btn-blue:hover {
+            background: var(--m-dark);
+            transform: translateY(-2px);
+            box-shadow: 4px 6px 0px rgba(15, 23, 42, 0.2);
+        }
+
+        .btn-orange {
+            background: var(--m-orange);
+            color: #fff;
+        }
+
+        .btn-orange:hover {
+            background: var(--m-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--m-dark);
+            border: 3px solid var(--m-dark);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--m-dark);
+            color: white;
+        }
+
+        /* סקשן 1: מסך הפתיחה (The Hero) */
+        .hero {
+            background-color: var(--m-yellow);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            /* גל תחתון עדין במקום חיתוך אלכסוני אלים */
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background-color: var(--m-bg);
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            color: var(--m-dark);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--m-dark);
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* סקשן 2: המניפסט (רקע כחול עמוק) */
+        .manifesto {
+            background-color: var(--m-blue);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .manifesto-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .manifesto h2 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 2rem;
+            color: var(--m-yellow);
+        }
+
+        .manifesto p {
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* סקשן 3: תוכנית העבודה (כרטיסיות בסגנון שלטי רחוב/מטרו) */
+        .blueprint {
+            padding: 8rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blueprint h2 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--m-dark);
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 8px solid var(--m-orange);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .card:nth-child(2) { border-top-color: var(--m-blue); }
+        .card:nth-child(3) { border-top-color: var(--m-yellow); }
+
+        .card .num {
+            font-family: 'Rubik', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--m-bg);
+            -webkit-text-stroke: 2px var(--m-dark); /* טקסט חלול מגניב */
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--m-dark);
+        }
+
+        .card p {
+            font-size: 1.1rem;
+            color: #475569;
+        }
+
+        /* קופסת האמנה */
+        .charter-box {
+            background-color: var(--m-yellow);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 4rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .charter-box h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--m-dark);
+        }
+
+        /* סקשן 4: קריאה לפעולה (טופס נגיש וחם) */
+        .cta-section {
+            background-color: var(--m-orange);
+            padding: 6rem 2rem;
+            text-align: center;
+            border-radius: 40px 40px 0 0; /* מעוגל כלפי מעלה */
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .form-container input {
+            font-family: 'Heebo', sans-serif;
+            font-size: 1.1rem;
+            padding: 1rem 1.5rem;
+            background-color: var(--m-bg);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            font-weight: 500;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-container input:focus {
+            border-color: var(--m-blue);
+        }
+
+        .form-container button {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        /* התאמות למובייל */
+        @media (max-width: 768px) {
+            .hero { padding-top: 4rem; }
+            .buttons { flex-direction: column; width: 100%; }
+            .btn { width: 100%; }
+            .card { padding: 2rem 1.5rem; }
+            .cta-section { border-radius: 20px 20px 0 0; padding: 4rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>העתיד <span class="highlight-blue">כבר כאן.</span></h1>
+            <p>אנחנו בונים אלטרנטיבה פדרלית, פרקטית ואופטימית למציאות של ימינו. זה הזמן לשנות את הכללים.</p>
+            <div class="buttons">
+                <a href="#join" class="btn btn-blue">הצטרפו לתנועה</a>
+                <a href="Federal_Charter_Final_Draft.pdf" target="_blank" class="btn btn-orange">קראו את האמנה הפדרלית</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="manifesto">
+        <div class="manifesto-content">
+            <h2>הפרדיגמות הישנות <br>פשוט לא עובדות יותר.</h2>
+            <p>
+                אנחנו לא מוכנים לבחור בין פחד לייאוש. <br>
+                עתיד פדרלי היא תנועת שטח של צעירות וצעירים שמשרטטים את המערכת הפוליטית של היום שאחרי: 
+                <span class="highlight-yellow">שותפות, חופש תנועה, וריבונות במולדת אחת.</span>
+            </p>
+        </div>
+    </section>
+
+    <section id="plan" class="blueprint">
+        <h2>איך זה נראה בפועל?</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="num">01</div>
+                <h3>ריבונות משותפת</h3>
+                <p>שתי רשויות מנהלות, מולדת אחת. מודל המבטיח ביטחון וחופש תנועה מלא לכלל האזרחים מכל צד של הקו.</p>
+            </div>
+            <div class="card">
+                <div class="num">02</div>
+                <h3>כלכלה אחת</h3>
+                <p>שוק משותף, יזמות ומטבע אחיד. השקעה בבניית תשתיות אזוריות וקליניקות במקום השקעה בחומות ובגדרות.</p>
+            </div>
+            <div class="card">
+                <div class="num">03</div>
+                <h3>ברית אזורית</h3>
+                <p>הקמת מסגרת פדרלית ישראלית-פלסטינית שמהווה את אבן הפינה ותשתית לאיחוד אזורי עתידי רחב יותר.</p>
+            </div>
+        </div>
+        
+        <div class="charter-box">
+            <h3>רוצים לצלול לפרטים?</h3>
+            <p style="margin-bottom: 1.5rem; font-size: 1.2rem;">המסמך המלא שלנו מפרט את החזון, המוסדות הפדרליים וחלוקת הסמכויות.</p>
+            <a href="Federal_Charter_Final_Draft.pdf" target="_blank" class="btn btn-outline">למסמך האמנה המלא (PDF)</a>
+        </div>
+    </section>
+
+    <section id="join" class="cta-section">
+        <h2>בואו לעשות היסטוריה.</h2>
+        <div class="form-container">
+            <input type="text" placeholder="איך קוראים לך?">
+            <input type="tel" placeholder="מספר טלפון (כדי שנדבר)">
+            <input type="email" placeholder="אימייל לעדכונים">
+            <button class="btn btn-blue" type="button">אני בפנים!</button>
+        </div>
+    </section>
+
+</body>
+</html>
