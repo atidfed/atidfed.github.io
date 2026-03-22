@@ -259,6 +259,12 @@
             color: white;
             text-align: center;
             line-height: 1.5;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .who-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.35);
         }
 
         .who-box--orange { background: var(--m-orange); border-color: white; }
@@ -297,13 +303,14 @@
             padding: 1.4rem 2rem;
             border-radius: 50px;
             width: 100%;
+            transition: transform 0.2s ease, filter 0.2s ease;
         }
 
-        @media (max-width: 640px) {
-            .who-boxes { flex-direction: column; align-items: center; gap: 1.5rem; }
-            .who-box { max-width: 100%; }
-            .who-connectors { display: none; }
+        .who-pill:hover {
+            transform: scale(1.03);
+            filter: brightness(1.1);
         }
+
 
         /* Message Cards */
         .message-cards {
@@ -320,11 +327,15 @@
             border-radius: 16px;
             padding: 2.5rem 2.5rem;
             text-align: right;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: default;
         }
 
-        @media (max-width: 968px) {
-            .message-cards { grid-template-columns: 1fr; }
+        .message-card:hover {
+            transform: translateY(-8px) rotate(-1deg);
+            box-shadow: 12px 12px 0px var(--m-dark);
         }
+
 
         .message-card__title {
             font-size: clamp(1.6rem, 3vw, 2rem);
@@ -715,6 +726,23 @@
             .manifesto p { font-size: 1.3rem; }
             .card { padding: 2.5rem 1.5rem; }
             .events-grid { grid-template-columns: 1fr; }
+
+            /* Diagram */
+            .who-boxes { gap: 1.5rem; }
+            .who-box { font-size: 1.2rem; padding: 1.8rem 1.2rem; }
+            .who-pill { font-size: 1.3rem; }
+
+            /* Info cards */
+            .message-cards { grid-template-columns: 1fr; }
+            .message-card { padding: 2rem 1.5rem; }
+        }
+
+        @media (max-width: 600px) {
+            /* Diagram: stack vertically */
+            .who-boxes { flex-direction: column; align-items: center; }
+            .who-box { max-width: 100%; width: 100%; }
+            .who-connectors { display: none; }
+            .who-pill { font-size: 1.1rem; border-radius: 40px; padding: 1.1rem 1.5rem; }
         }
     </style>
 </head>
