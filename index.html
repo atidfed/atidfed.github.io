@@ -231,6 +231,136 @@
             line-height: 1.6;
         }
 
+        /* Who Diagram */
+        .who-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            margin-top: 3rem;
+        }
+
+        .who-boxes {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .who-box {
+            flex: 1;
+            max-width: 320px;
+            border-radius: 16px;
+            border: 3px solid var(--m-yellow);
+            padding: 2.5rem 2rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .who-box--orange { background: var(--m-orange); border-color: white; }
+        .who-box--blue   { background: #0e7490; border-color: white; }
+
+        .who-connectors {
+            width: 100%;
+            max-width: 800px;
+            height: 50px;
+            position: relative;
+        }
+
+        /* Two vertical drops from each box to the pill */
+        .who-connector-line {
+            position: absolute;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: white;
+        }
+
+        .who-connector-line--right { right: 25%; }
+        .who-connector-line--left  { left: 25%; }
+
+        .who-bottom {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .who-pill {
+            background: var(--m-yellow);
+            color: var(--m-dark);
+            font-size: 1.6rem;
+            font-weight: 800;
+            text-align: center;
+            padding: 1.4rem 2rem;
+            border-radius: 50px;
+            width: 100%;
+        }
+
+        @media (max-width: 640px) {
+            .who-boxes { flex-direction: column; align-items: center; gap: 1.5rem; }
+            .who-box { max-width: 100%; }
+            .who-connectors { display: none; }
+        }
+
+        /* Message Cards */
+        .message-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1100px;
+            margin-top: 4rem;
+        }
+
+        .message-card {
+            background: #1e3a8a;
+            border-radius: 16px;
+            padding: 2.5rem 2.5rem;
+            text-align: right;
+        }
+
+        @media (max-width: 968px) {
+            .message-cards { grid-template-columns: 1fr; }
+        }
+
+        .message-card__title {
+            font-size: clamp(1.6rem, 3vw, 2rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.6rem;
+        }
+
+        .message-card__title::after {
+            content: '';
+            display: block;
+            width: 3rem;
+            height: 3px;
+            background: var(--m-yellow);
+            margin-top: 0.5rem;
+        }
+
+        .message-card__title--blue::after  { background: var(--m-blue); }
+        .message-card__title--orange::after { background: var(--m-orange); }
+
+
+        .message-card__body {
+            margin-top: 1.8rem;
+        }
+
+        .message-card__body p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .message-card__body strong {
+            color: white;
+            font-weight: 700;
+        }
+
         /* Blueprint Section */
         .blueprint {
             padding: 120px 0;
@@ -615,12 +745,44 @@
 
     <section id="about" class="manifesto">
         <div class="container">
-            <h2 class="reveal">הפרדיגמות הישנות <br>פשוט לא עובדות יותר.</h2>
-            <p class="reveal">
-                אנחנו לא מוכנים לבחור בין פחד לייאוש. <br><br>
-                עתיד פדרלי היא תנועת שטח של דור ה-Z והמילניאלס שמשרטטים את המערכת הפוליטית של המחר: 
-                <span class="highlight-yellow" style="color: black;">שותפות, חופש תנועה, וריבונות במולדת אחת.</span>
-            </p>
+            <h2 class="section-title reveal" style="color: var(--m-yellow);">רגע, מי אנחנו בכלל?</h2>
+            <div class="who-diagram reveal">
+                <div class="who-boxes">
+                    <div class="who-box who-box--orange">
+                        <span>תנועת צעירים<br>פלסטינית</span>
+                    </div>
+                    <div class="who-box who-box--blue">
+                        <span>תנועת צעירים<br>ישראלית</span>
+                    </div>
+                </div>
+                <div class="who-connectors">
+                    <div class="who-connector-line who-connector-line--right"></div>
+                    <div class="who-connector-line who-connector-line--left"></div>
+                </div>
+                <div class="who-bottom">
+                    <div class="who-pill">מטה פעולה משותף</div>
+                </div>
+            </div>
+            <div class="message-cards reveal">
+                <div class="message-card">
+                    <h3 class="message-card__title message-card__title--blue">מבנה הכוח</h3>
+                    <div class="message-card__body">
+                        <p>אנחנו צוות צעיר, נחוש וממוקד. מדובר <strong>בשתי תנועות שטח נפרדות ועצמאיות</strong> שמשלבות כוחות כגוף פוליטי מאוחד. שמרנו על הזהויות שלנו, כל צד פועל מול הקהל שלו, אבל האסטרטגיה המדינית והחזון משותפים לחלוטין.</p>
+                    </div>
+                </div>
+                <div class="message-card">
+                    <h3 class="message-card__title message-card__title--orange">העשייה</h3>
+                    <div class="message-card__body">
+                        <p>אנחנו פועלים בשני כיוונים: <strong>לחץ מלמעלה</strong> מול גורמי השפעה ומקבלי החלטות, <strong>וכוח אזרחי מלמטה</strong> – בניית גוף צעיר בשטח שמתפקד כבר היום בדיוק כמו שהיינו רוצים לראות את המדינה שלנו: בשיתוף פעולה, בשירות ובנחישות.</p>
+                    </div>
+                </div>
+                <div class="message-card">
+                    <h3 class="message-card__title">המסר</h3>
+                    <div class="message-card__body">
+                        <p>כל זה קורה כדי להבטיח לילדים ולנכדים שלנו חיים בטוחים במרחב. ההוכחה שלנו <strong>ניצחת: אם אנחנו הצלחנו להגיע להסכמות ועדיין לשמר את הזהויות והדעות שלנו – כל אחד במרחב הזה יכול.</strong></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
