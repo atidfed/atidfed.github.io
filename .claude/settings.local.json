@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(find /c/repos/atidfed.github.io -not -path */.git/* -type f)"
+      "Bash(find /c/repos/atidfed.github.io -not -path */.git/* -type f)",
+      "mcp__playwright"
     ]
   }
 }
