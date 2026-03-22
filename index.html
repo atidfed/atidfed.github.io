@@ -485,21 +485,27 @@
         }
 
         .footer-logo-container {
-            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 1.5rem;
         }
 
         .footer-logo-img {
-            max-width: 150px;
-            height: auto;
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
             border-radius: 50%;
-            border: 3px solid var(--m-white);
+            border: 2px solid var(--m-white);
             background: white;
-            padding: 5px;
+            padding: 3px;
+            order: -1;
         }
 
         .footer-logo {
             font-size: 2rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0;
             color: var(--m-yellow);
         }
 
@@ -563,7 +569,7 @@
     <header id="header">
         <nav class="container">
             <a href="#" class="logo">
-                <img src="logo.jpeg" alt="עתיד פדרלי לוגו" class="logo-img" onerror="this.style.display='none'">
+                <img src="images/logo.jpeg" alt="עתיד פדרלי לוגו" class="logo-img" onerror="this.style.display='none'">
                 עתיד פדרלי - מכנה משותף
             </a>
             <div class="nav-links">
@@ -725,10 +731,9 @@
         <div class="container">
             <!-- לוגו מעודכן בפוטר -->
             <div class="footer-logo-container">
-                <img src="logo.jpeg" alt="עתיד פדרלי לוגו" class="footer-logo-img" onerror="this.style.display='none'">
+                <div class="footer-logo">עתיד פדרלי - מכנה משותף</div>
+                <img src="images/logo.jpeg" alt="עתיד פדרלי לוגו" class="footer-logo-img" onerror="this.style.display='none'">
             </div>
-            
-            <div class="footer-logo">עתיד פדרלי - מכנה משותף</div>
             
             <div class="socials">
                 <a href="https://www.instagram.com/atid_fed/" target="_blank" class="social-link" title="Instagram">
