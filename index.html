@@ -348,6 +348,19 @@
             text-align: center;
             padding: 1.5rem;
         }
+        .event-img-pair {
+            width: 100%;
+            height: 220px;
+            display: flex;
+            gap: 4px;
+            border-bottom: 4px solid var(--m-dark);
+            overflow: hidden;
+        }
+        .event-img-pair img {
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+        }
 
         .event-info {
             padding: 1.5rem;
@@ -653,17 +666,18 @@
             <h2 class="section-title reveal">אירועים ופעילות בשטח</h2>
             <div class="events-grid">
                 <div class="event-card reveal">
-                    <div class="event-img-placeholder" style="background-color: var(--m-blue); color: white;">
-                        [תמונה מכנסים באירופה]
+                    <div class="event-img-pair">
+                        <img src="images/europe_conference.jpeg" alt="כנסים באירופה 1">
+                        <img src="images/europe_conference_2.jpeg" alt="כנסים באירופה 2">
                     </div>
                     <div class="event-info">
-                        <h4>כנס הלבנט באירופה</h4>
-                        <p>מפגש בינלאומי לקידום החזון הפדרלי עם קובעי מדיניות באיחוד האירופי ושיח על שיתוף פעולה אזורי.</p>
+                        <h4>כנסים באירופה</h4>
+                        <p>מפגשים בינלאומיים לקידום החזון הפדרלי עם קובעי מדיניות באיחוד האירופי ושיח על שיתוף פעולה אזורי.</p>
                     </div>
                 </div>
                 <div class="event-card reveal">
-                    <div class="event-img-placeholder" style="background-color: var(--m-yellow);">
-                        [תמונה ממפגשי מנהיגות צעירה]
+                    <div class="event-img-placeholder" style="padding: 0; overflow: hidden;">
+                        <img src="images/young_leadership.jpeg" alt="מנהיגות צעירה" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="event-info">
                         <h4>מנהיגות צעירה</h4>
@@ -671,17 +685,17 @@
                     </div>
                 </div>
                 <div class="event-card reveal">
-                    <div class="event-img-placeholder" style="background-color: var(--m-orange); color: white;">
-                        [תמונה של צוותי עבודה]
+                    <div class="event-img-placeholder" style="padding: 0; overflow: hidden;">
+                        <img src="images/work_teams.jpeg" alt="צוותי עבודה" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="event-info">
                         <h4>צוותי עבודה</h4>
-                        <p>צוותי משימה מקצועיים המגבשים ניירות עמדה, פתרונות טכנולוגיים ותוכניות עבודה מעשיות ליישום המודל.</p>
+                        <p>צוותי משימה מקצועיים הפועלים לגיבוש ניירות עמדה מדיניים, פיתוח אסטרטגיות שיווק, ניהול פיננסי, וטיפוח קשרים עם הקהילה ועם השטח.</p>
                     </div>
                 </div>
                 <div class="event-card reveal">
-                    <div class="event-img-placeholder" style="background-color: var(--m-dark); color: white;">
-                        [תמונה מאירועי הסברה]
+                    <div class="event-img-placeholder" style="padding: 0; overflow: hidden;">
+                        <img src="images/hasbara_event.jpeg" alt="אירועי הסברה" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="event-info">
                         <h4>אירועי הסברה</h4>
