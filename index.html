@@ -386,9 +386,29 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: 1fr auto 1fr auto 1fr;
             gap: 2.5rem;
             align-items: start;
+        }
+
+        .stage-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 6rem;
+            color: var(--m-orange);
+        }
+        .stage-arrow svg {
+            width: 48px;
+            height: 48px;
+            transform: scaleX(-1);
+            filter: drop-shadow(2px 2px 0px var(--m-dark));
+            transition: transform 0.2s, filter 0.2s;
+            cursor: default;
+        }
+        .stage-arrow:hover svg {
+            transform: scaleX(-1) scale(1.25);
+            filter: drop-shadow(3px 3px 0px var(--m-dark));
         }
 
         .card {
@@ -728,6 +748,10 @@
             .manifesto p { font-size: 1.3rem; }
             .card { padding: 2.5rem 1.5rem; }
             .events-grid { grid-template-columns: 1fr; }
+            .grid { grid-template-columns: 1fr; }
+            .stage-arrow { padding-top: 0; }
+            .stage-arrow svg { transform: rotate(90deg); }
+            .stage-arrow:hover svg { transform: rotate(90deg) scale(1.25); }
 
             /* Diagram */
             .who-boxes { gap: 1.5rem; }
@@ -919,17 +943,59 @@
                     </ul>
                 </div>
 
+                <!-- Arrow 1→2 -->
+                <div class="stage-arrow">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 24H40M40 24L28 12M40 24L28 36" stroke="#FF5A00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+
                 <!-- שלב 2 -->
                 <div class="card reveal">
                     <div class="num">02</div>
                     <div class="stage-label">שלב 2</div>
-                    <h3>קונפדרציה דרומית</h3>
-                    <ul>
-                        <li><strong>מוסדות משותפים:</strong> הקמת נציבות עליונה (ממשלה), בית משפט חוקתי ופרלמנט עם סמכויות חקיקה.</li>
-                        <li><strong>צבא קונפדרטיבי:</strong> מעבר הדרגתי מצה"ל וכוחות הביטחון הפלסטינים לצבא אחד מאוחד.</li>
-                        <li><strong>חופש מגורים:</strong> יישום הדרגתי של זכות המגורים בשתי המדינות תוך שמירה על איזונים דמוגרפיים.</li>
-                        <li><strong>הגירה:</strong> הכרה הדדית בחוקי השבות היהודיים וחוקי השיבה הפלסטיניים.</li>
+                    <h3>מסגרת פדרלית - כניסת האמנה לתוקפה</h3>
+                    <ul class="accordion-list">
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">אחדות כלכלית</button>
+                            <div class="accordion-body">מטבע משותף על בסיס השקל החדש, איחוד מכסים ושוק פנימי פתוח.</div>
+                        </li>
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">ירושלים</button>
+                            <div class="accordion-body">עיר מאוחדת המתפקדת כבירה משותפת.</div>
+                        </li>
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">הידוק הביטחון</button>
+                            <div class="accordion-body">תיאום בטחוני מאוחד לאבטחת הגבולות החיצוניים עם ירדן ומצרים.</div>
+                        </li>
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">כוח מאוחד נגד טרור</button>
+                            <div class="accordion-body">שילוב כוחות הביטחון ליצירת כח משותף שיפעל נגד טרור ואלימות.</div>
+                        </li>
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">חופש תנועה ומגורים</button>
+                            <div class="accordion-body">מנגנון מיוחד יוקם לטובת יישום הדרגתי של כל הזכויות האזרחיות.</div>
+                        </li>
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">צדק משפטי</button>
+                            <div class="accordion-body">קידום חוקה שמבססת איזון בין רשויות, מקדמת זכויות לכולם ושמירה על זהות.</div>
+                        </li>
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">מוסדות משותפים</button>
+                            <div class="accordion-body">ממשלה פדרלית, בית משפט חוקתי ופרלמנט עם סמכויות חקיקה.</div>
+                        </li>
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">מועצת חינוך</button>
+                            <div class="accordion-body">גוף המפקח על התוכן במערכות החינוך, מנטרל תכנים מסיתים ואלימים, ומחזק תוכן שיתופי.</div>
+                        </li>
                     </ul>
+                </div>
+
+                <!-- Arrow 2→3 -->
+                <div class="stage-arrow">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 24H40M40 24L28 12M40 24L28 36" stroke="#FF5A00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </div>
 
                 <!-- שלב 3 -->
@@ -937,11 +1003,23 @@
                     <div class="num">03</div>
                     <div class="stage-label">שלב 3</div>
                     <h3>פדרציה לבנטינית</h3>
-                    <ul>
-                        <li><strong>הלבנט המאוחד:</strong> מסגרת פדרלית רחבה הכוללת את ישראל, פלסטין, ירדן, לבנון, סוריה ועיראק.</li>
-                        <li><strong>ממשל פדרלי:</strong> הקמת פרלמנט פדרלי, סנאט מייצג למדינות ומועצה נשיאותית.</li>
-                        <li><strong>רב-תרבותיות:</strong> הכרה בשפות רשמיות (עברית, ערבית, כורדית) ומעמד מיוחד לשפות מיעוטים אזוריות.</li>
-                        <li><strong>ניהול משאבים:</strong> רשות פדרלית לניהול משאבים, חינוך ותרבות ברחבי הלבנט.</li>
+                    <ul class="accordion-list">
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">הלבנט המאוחד</button>
+                            <div class="accordion-body">מסגרת פדרלית רחבה הכוללת את ישראל, פלסטין, ירדן, לבנון, סוריה ועיראק.</div>
+                        </li>
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">ממשל פדרלי</button>
+                            <div class="accordion-body">הקמת פרלמנט פדרלי, סנאט מייצג למדינות ומועצה נשיאותית.</div>
+                        </li>
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">רב-תרבותיות</button>
+                            <div class="accordion-body">הכרה בשפות רשמיות (עברית, ערבית, כורדית) ומעמד מיוחד לשפות מיעוטים אזוריות.</div>
+                        </li>
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">ניהול משאבים</button>
+                            <div class="accordion-body">רשות פדרלית לניהול משאבים, חינוך ותרבות ברחבי הלבנט.</div>
+                        </li>
                     </ul>
                 </div>
             </div>
