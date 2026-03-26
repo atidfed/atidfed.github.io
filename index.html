@@ -388,6 +388,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
+            align-items: start;
         }
 
         .card {
@@ -403,7 +404,7 @@
         }
 
         .card:hover {
-            transform: translateY(-8px) rotate(-1deg);
+            transform: translateY(-8px) scale(1.03);
             box-shadow: 12px 12px 0px var(--m-dark);
         }
 
@@ -744,6 +745,73 @@
             .who-box { font-size: 0.85rem; padding: 1rem 0.6rem; max-width: none; }
             .who-pill { font-size: 0.95rem; border-radius: 40px; padding: 0.9rem 1rem; }
         }
+
+        /* Accordion */
+        .accordion-list {
+            list-style: none;
+            padding: 0;
+            padding-inline-start: 0;
+            margin: 0;
+        }
+        .card .accordion-list {
+            padding: 0;
+            padding-inline-start: 0;
+        }
+        .accordion-item,
+        .card li.accordion-item {
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-right: 0;
+            margin-bottom: 0;
+        }
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+        .accordion-toggle {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: right;
+            font-family: 'Heebo', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--m-dark);
+            cursor: pointer;
+            padding: 0.75rem 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0.5rem;
+            border-radius: 6px;
+            transition: background 0.15s, color 0.15s;
+        }
+        .accordion-item::before {
+            display: none;
+        }
+        .accordion-toggle::before {
+            content: '*';
+            font-size: 1rem;
+            font-weight: 900;
+            color: var(--m-orange);
+            flex-shrink: 0;
+        }
+        .accordion-toggle:hover {
+            background: rgba(255, 90, 0, 0.08);
+            color: var(--m-orange);
+        }
+        .accordion-toggle.open {
+            color: var(--m-blue);
+        }
+        .accordion-body {
+            display: none;
+            padding: 0 0 0.75rem 0;
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.6;
+        }
+        .accordion-body.open {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -822,12 +890,32 @@
                 <div class="card reveal">
                     <div class="num">01</div>
                     <div class="stage-label">שלב 1</div>
-                    <h3>ברית אזורית</h3>
-                    <ul>
-                        <li><strong>שתי מדינות +:</strong> שיתוף פעולה במשאבי מים, אנרגיה וטבע.</li>
-                        <li><strong>אחדות כלכלית:</strong> מטבע משותף (על בסיס השקל), איחוד מכסים ושוק פנימי פתוח.</li>
-                        <li><strong>ירושלים:</strong> עיר מאוחדת המתפקדת כבירה משותפת לשתי המדינות.</li>
-                        <li><strong>ביטחון:</strong> פיקוד צבאי מאוחד לאבטחת הגבולות החיצוניים עם ירדן ומצרים.</li>
+                    <h3>ברית אינטרסים מקומית</h3>
+                    <ul class="accordion-list">
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">חופש דת וחופש מדת</button>
+                            <div class="accordion-body">הבטחת כניסה חופשית למקומות דת עבור כל המתפללים.</div>
+                        </li>
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">עוברים מתלות לשותפות כלכלות</button>
+                            <div class="accordion-body">כיום הכלכלה הפלסטינית מוכפפת לכלכלה הישראלית. פיתרון פדרלי חייב להתחיל בתמיכה בשותפויות כלכליות וחברתיות שמבטלות את התלות בין הכלכלות, ומוכיחות שהמודל עובד.</div>
+                        </li>
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">תחילת משא ומתן על בסיס מודל פדרלי</button>
+                            <div class="accordion-body">מפסיקים את סבבי הלחימה הבלתי נגמרים ונכנסים למשא ומתן על העתיד של כולנו.</div>
+                        </li>
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">חיזוק מוסדות הביטחון</button>
+                            <div class="accordion-body">בונים ומחזקים מוסדות שדואגים לביטחון.</div>
+                        </li>
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">חופש תנועה ותעסוקה</button>
+                            <div class="accordion-body">קידום חופש תנועה ותעסוקה הדרגתי.</div>
+                        </li>
+                        <li class="accordion-item">
+                            <button class="accordion-toggle">ירושלים לכולם</button>
+                            <div class="accordion-body">תמיכה בירושלים פתוחה ומאוחדת שעובדת בשביל כולם, בלי חומות, אסיפה בין פרלמנטרית משותפת שתתאם חקיקה לטובת האזרחים.</div>
+                        </li>
                     </ul>
                 </div>
 
@@ -972,6 +1060,16 @@
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Accordion
+        document.querySelectorAll('.accordion-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const body = btn.nextElementSibling;
+                const isOpen = btn.classList.contains('open');
+                btn.classList.toggle('open', !isOpen);
+                body.classList.toggle('open', !isOpen);
+            });
+        });
 
         // Sticky Header effect
         window.addEventListener('scroll', () => {
