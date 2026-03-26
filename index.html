@@ -739,11 +739,10 @@
         }
 
         @media (max-width: 600px) {
-            /* Diagram: stack vertically */
-            .who-boxes { flex-direction: column; align-items: center; }
-            .who-box { max-width: 100%; width: 100%; }
-            .who-connectors { display: none; }
-            .who-pill { font-size: 1.1rem; border-radius: 40px; padding: 1.1rem 1.5rem; }
+            /* Diagram: keep side by side, shrink to fit */
+            .who-boxes { gap: 0.75rem; }
+            .who-box { font-size: 0.85rem; padding: 1rem 0.6rem; max-width: none; }
+            .who-pill { font-size: 0.95rem; border-radius: 40px; padding: 0.9rem 1rem; }
         }
     </style>
 </head>
@@ -776,20 +775,20 @@
         <div class="container">
             <h2 class="section-title reveal" style="color: var(--m-yellow);">רגע, מי אנחנו בכלל?</h2>
             <div class="who-diagram reveal">
-                <div class="who-boxes">
-                    <div class="who-box who-box--orange">
-                        <span>תנועת צעירים<br>פלסטינית</span>
-                    </div>
-                    <div class="who-box who-box--blue">
-                        <span>תנועת צעירים<br>ישראלית</span>
-                    </div>
+                <div class="who-bottom">
+                    <div class="who-pill">מטה פעולה משותף</div>
                 </div>
                 <div class="who-connectors">
                     <div class="who-connector-line who-connector-line--right"></div>
                     <div class="who-connector-line who-connector-line--left"></div>
                 </div>
-                <div class="who-bottom">
-                    <div class="who-pill">מטה פעולה משותף</div>
+                <div class="who-boxes">
+                    <div class="who-box who-box--blue">
+                        <span>תנועת צעירים<br>ישראלית</span>
+                    </div>
+                    <div class="who-box who-box--orange">
+                        <span>תנועת צעירים<br>פלסטינית</span>
+                    </div>
                 </div>
             </div>
             <div class="message-cards reveal">
