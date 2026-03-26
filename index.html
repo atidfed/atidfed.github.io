@@ -14,7 +14,7 @@
             --m-yellow: #fbc654;
             --m-blue: #1274ce;
             --m-orange: #f78803;
-            --m-red: var(--m-red);
+            --m-red: #da2c2d;
             --m-bg: #FDFBF7;
             --m-dark: #033653;
             --m-white: #eee6c1;
@@ -358,6 +358,92 @@
         .message-card__title--blue::after  { background: var(--m-blue); }
         .message-card__title--orange::after { background: var(--m-orange); }
 
+
+        .message-card--bg-doing {
+            background-image: url('images/doing_background_2.webp');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-card--bg-doing::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(30, 58, 138, 0.82);
+            border-radius: inherit;
+            z-index: 0;
+        }
+
+        .message-card--bg-doing > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .message-card--bg-doing .message-card__title,
+        .message-card--bg-doing .message-card__body p {
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .message-card--bg-doing .message-card__body p {
+            color: #fff;
+        }
+
+        .message-card--bg-street {
+            background-image: url('images/background_decorative_4.webp');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-card--bg-street::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(30, 58, 138, 0.82);
+            border-radius: inherit;
+            z-index: 0;
+        }
+
+        .message-card--bg-street > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .message-card--bg-street .message-card__title,
+        .message-card--bg-balloons .message-card__title {
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .message-card--bg-street .message-card__body p,
+        .message-card--bg-balloons .message-card__body p {
+            text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+            color: #fff;
+        }
+
+        .message-card--bg-balloons {
+            background-image: url('images/background_decorative_5.webp');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-card--bg-balloons::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(30, 58, 138, 0.82);
+            border-radius: inherit;
+            z-index: 0;
+        }
+
+        .message-card--bg-balloons > * {
+            position: relative;
+            z-index: 1;
+        }
 
         .message-card__body {
             margin-top: 1.8rem;
@@ -885,19 +971,19 @@
                 </div>
             </div>
             <div class="message-cards reveal">
-                <div class="message-card">
+                <div class="message-card message-card--bg-street">
                     <h3 class="message-card__title message-card__title--blue">מבנה התנועה</h3>
                     <div class="message-card__body">
                         <p>אנחנו צוות צעיר, נחוש וממוקד. הצוות מחולק לשתי תנועות שטח נפרדות ועצמאיות שמשלבות כוחות כגוף פוליטי מאוחד. שמרנו על הזהויות שלנו, וכל צד פועל מול הקהל שלו, אבל האסטרטגיה המדינית והחזון משותפים.</p>
                     </div>
                 </div>
-                <div class="message-card">
+                <div class="message-card message-card--bg-doing">
                     <h3 class="message-card__title message-card__title--orange">העשייה</h3>
                     <div class="message-card__body">
                         <p>אנחנו פועלים בשני כיוונים:  ברמה הפוליטית מול גורמי השפעה ומקבלי החלטות, ובמקביל ברמה האזרחית – בונים גוף צעיר בשטח שמתפקד כבר היום בדיוק כמו שהיינו רוצים לראות את המדינה שלנו: בשיתוף פעולה הקודם לכל אי הסכמה.</p>
                     </div>
                 </div>
-                <div class="message-card">
+                <div class="message-card message-card--bg-balloons">
                     <h3 class="message-card__title">המסר</h3>
                     <div class="message-card__body">
                         <p>כל זה קורה כדי להבטיח לילדים ולנכדים שלנו חיים בטוחים. ההוכחה שלנו ניצחת: אם אנחנו הצלחנו להגיע להסכמות על עתידנו המדיני ועדיין לשמר את הזהויות והדעות שלנו – כל אחד יכול.</p>
@@ -1120,7 +1206,7 @@
                 </a>
             </div>
 
-            <p class="footer-text">התנועה פתוחה לכל מי שמזדהה עם עקרונות האמנה הפדרלית.</p>
+            <p class="footer-text">התנועה פתוחה לכל מי שמזדהה עם עקרונות החזון הפדרלי.</p>
         </div>
     </footer>
 
