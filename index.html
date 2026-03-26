@@ -499,7 +499,7 @@
         }
 
         .card {
-            background: #fff;
+            background: rgba(255, 90, 0, 0.18);
             border: 3px solid var(--m-dark);
             border-radius: 24px;
             padding: 3.5rem 2.5rem;
@@ -582,6 +582,45 @@
             right: 0;
             color: var(--m-blue);
             font-weight: 900;
+        }
+
+        /* Aspects Grid */
+        .aspects-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .aspect-card {
+            background: var(--m-yellow);
+            border: 3px solid var(--m-dark);
+            border-radius: 16px;
+            box-shadow: 6px 6px 0px var(--m-dark);
+            padding: 1.5rem 1.2rem;
+            text-align: center;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 700;
+            font-size: 1.15rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: default;
+        }
+
+        .aspect-card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 10px 10px 0px var(--m-dark);
+        }
+
+        @media (max-width: 968px) {
+            .aspects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .aspects-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Events Section */
@@ -738,6 +777,23 @@
             padding: 120px 0;
             border-top: 8px solid var(--m-dark);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('images/0.webp') center center / cover no-repeat;
+            opacity: 0.18;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .cta-section > * {
+            position: relative;
+            z-index: 1;
         }
 
         .cta-content {
@@ -1051,6 +1107,34 @@
                     <div class="num">03</div>
                     <div class="stage-label">שלב 3</div>
                     <h3>פדרציה לבנטינית</h3>
+                </div>
+            </div>
+
+            <!-- היבטי התוכנית -->
+            <div class="aspects-grid">
+                <div class="aspect-card reveal">
+                    <span>הסדרי ביטחון</span>
+                </div>
+                <div class="aspect-card reveal">
+                    <span>חופש דת וחופש מדת</span>
+                </div>
+                <div class="aspect-card reveal">
+                    <span>שיתוף פעולה כלכלי</span>
+                </div>
+                <div class="aspect-card reveal">
+                    <span>צדק משפטי</span>
+                </div>
+                <div class="aspect-card reveal">
+                    <span>חינוך</span>
+                </div>
+                <div class="aspect-card reveal">
+                    <span>בניית מוסדות משותפים</span>
+                </div>
+                <div class="aspect-card reveal">
+                    <span>שיתוף פעולה אזורי</span>
+                </div>
+                <div class="aspect-card reveal">
+                    <span>רב תרבותיות</span>
                 </div>
             </div>
         </div>
