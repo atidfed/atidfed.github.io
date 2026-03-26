@@ -13,16 +13,6 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Accordion
-document.querySelectorAll('.accordion-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const body = btn.nextElementSibling;
-        const isOpen = btn.classList.contains('open');
-        btn.classList.toggle('open', !isOpen);
-        body.classList.toggle('open', !isOpen);
-    });
-});
-
 // Sticky Header effect
 window.addEventListener('scroll', () => {
     const header = document.getElementById('header');

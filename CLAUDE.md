@@ -8,12 +8,13 @@ This is the website for **עתיד פדרלי** ("Federal Future - Common Denomi
 
 ## Architecture
 
-The entire site is a **single self-contained file**: `index.html`. There is no build system, no framework, and no dependencies.
+The site has three source files and no build system or framework:
 
-- All CSS is embedded in a `<style>` block (lines ~11–578)
-- All JavaScript is embedded in a `<script>` block at the bottom (~34 lines)
+- `index.html` — all markup
+- `style.css` — all styles (linked via `<link rel="stylesheet">`)
+- `script.js` — all JavaScript (linked via `<script src>` at end of body)
 - Content is in **Hebrew** (`lang="he" dir="rtl"` — right-to-left layout)
-- Assets: `images/` for photos/logo, `docs/` for PDFs and step images
+- Assets: `images/used/` for photos/logo (`.webp`), `docs/` for PDFs
 
 ## Running Locally
 
@@ -31,28 +32,28 @@ Pushing to `main` deploys automatically via GitHub Pages — no CI step required
 
 ## Design System
 
-CSS variables defined at the top of the `<style>` block:
-- `--m-yellow`: #FFC900
-- `--m-blue`: #1D4ED8
-- `--m-orange`: #FF5A00
-- `--m-dark`: #0F172A
-- `--m-white` / `--m-bg`: white/beige
+CSS variables defined at the top of `style.css`:
+- `--m-yellow`: #fbc654
+- `--m-blue`: #1274ce
+- `--m-orange`: #f78803
+- `--m-red`: #da2c2d
+- `--m-dark`: #033653
+- `--m-white`: #eee6c1
+- `--m-bg`: #FDFBF7
 
 Fonts: **Heebo** (body) and **Rubik** (headings) from Google Fonts. Mobile breakpoint at 968px.
 
 ## Page Sections
 
-1. Header/nav (sticky, scroll-effect)
-2. Hero (yellow)
-3. Manifesto (blue)
-4. Blueprint — three-stage roadmap
-5. Events — grid of cards + resources banner
-6. CTA — join form (name, phone, email)
-7. Footer (dark)
+1. Header/nav — sticky with scroll-shrink effect; nav links: עלינו, החזון, אירועים, מידע נוסף, הצטרפות
+2. Hero — yellow background
+3. About (`#about`) — "who we are" diagram (two youth movements + joint HQ) + three message-cards with background images
+4. Blueprint (`#plan`) — three-stage roadmap (cards + SVG arrows) + 8 aspect-cards; stage 2 links to `docs/Federal_Charter_Final_Draft.pdf`
+5. Events (`#events`) — 4 image-cards grid + resources banner (`#resources`) with 3 resource-cards (PDF, external article, journal article)
+6. CTA (`#join`) — embedded Google Form iframe (no custom form fields)
+7. Footer — logo, Instagram social link, tagline
 
-## JavaScript Behavior
+## JavaScript Behavior (`script.js`)
 
-The script handles:
-- Scroll-reveal animations via `IntersectionObserver`
-- Sticky header class toggling on scroll
-- Join form submission (currently logs to console / basic validation)
+- Scroll-reveal animations via `IntersectionObserver` on `.reveal` elements
+- Sticky header shrink/shadow on scroll past 50px
