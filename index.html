@@ -522,7 +522,7 @@
             color: transparent;
             -webkit-text-stroke: 2px var(--m-dark);
             position: absolute;
-            top: 20px;
+            top: 5px;
             left: 20px;
             opacity: 0.2;
         }
@@ -533,6 +533,27 @@
             color: var(--m-dark);
             display: inline-block;
             width: fit-content;
+        }
+
+        .btn-charter {
+            display: inline-block;
+            align-self: flex-start;
+            margin-top: 1.5rem;
+            padding: 0.4rem 0.8rem;
+            background: var(--m-blue);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.85rem;
+            border: 2px solid var(--m-dark);
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 3px 3px 0px var(--m-dark);
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .btn-charter:hover {
+            box-shadow: 5px 5px 0px var(--m-dark);
+            transform: translate(-1px, -1px);
         }
 
         .card .stage-label {
@@ -1015,6 +1036,7 @@
                     <div class="num">02</div>
                     <div class="stage-label">שלב 2</div>
                     <h3>מסגרת פדרלית ישראלית פלסטינית</h3>
+                    <a href="docs/Federal_Charter_Final_Draft.pdf" target="_blank" class="btn-charter">למסמך האמנה</a>
                 </div>
 
                 <!-- Arrow 2→3 -->
