@@ -98,7 +98,7 @@ const translations = {
         'nav-events': 'Events',
         'nav-resources': 'More Info',
         'nav-join': 'Join',
-        'hero-title': 'The future <span class="highlight-blue">is already here.</span>',
+        'hero-title': 'The future <span class="highlight-blue">is here.</span>',
         'hero-p': 'We are building a federal, practical, and optimistic alternative to the reality of our times.<br><strong>Now is the time to change the rules and build a home for everyone.</strong>',
         'about-title': 'Wait, who are we anyway?',
         'who-box-blue': 'Israeli<br>Youth Movement',
