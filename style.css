@@ -887,6 +887,90 @@ footer {
     line-height: 1.6;
 }
 
+/* Language Switcher */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
+}
+
+.lang-divider {
+    color: var(--m-dark);
+    opacity: 0.4;
+    font-weight: 400;
+    user-select: none;
+}
+
+.lang-btn {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--m-dark);
+    opacity: 0.5;
+    transition: color 0.2s, opacity 0.2s;
+    white-space: nowrap;
+}
+
+.lang-btn:hover {
+    opacity: 0.85;
+    color: var(--m-blue);
+}
+
+.lang-btn.active {
+    font-weight: 900;
+    opacity: 1;
+    cursor: default;
+    color: var(--m-dark);
+}
+
+.lang-btn.active:hover {
+    color: var(--m-dark);
+    opacity: 1;
+}
+
+html[dir="ltr"] .card .num {
+    left: auto;
+    right: 20px;
+}
+
+/* Always keep the lang switcher on the physical left.
+   In RTL, it is last in DOM so flex places it on the left naturally.
+   In LTR, order:-1 pulls it before all other flex items. */
+html[dir="ltr"] .lang-switcher {
+    order: -1;
+}
+
+/* LTR Language Overrides */
+html[dir="ltr"] .stage-arrow svg {
+    transform: scaleX(1);
+}
+html[dir="ltr"] .stage-arrow:hover svg {
+    transform: scaleX(1) scale(1.25);
+}
+html[dir="ltr"] .aspect-card-body p {
+    text-align: left;
+}
+html[dir="ltr"] .message-card {
+    text-align: left;
+}
+html[dir="ltr"] .resource-card {
+    text-align: left !important;
+}
+
+@media (max-width: 968px) {
+    html[dir="ltr"] .stage-arrow svg {
+        transform: rotate(90deg);
+    }
+    html[dir="ltr"] .stage-arrow:hover svg {
+        transform: rotate(90deg) scale(1.25);
+    }
+}
+
 /* Mobile Adjustments */
 @media (max-width: 968px) {
     .cta-content { grid-template-columns: 1fr; text-align: center; }
