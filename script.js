@@ -13,6 +13,18 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+// Expandable aspect cards
+document.querySelectorAll('.aspect-card--expandable').forEach(card => {
+    const toggle = () => {
+        const expanded = card.getAttribute('aria-expanded') === 'true';
+        card.setAttribute('aria-expanded', String(!expanded));
+    };
+    card.addEventListener('click', toggle);
+    card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+});
+
 // Sticky Header effect
 window.addEventListener('scroll', () => {
     const header = document.getElementById('header');
