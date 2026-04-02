@@ -90,9 +90,9 @@ const translations = {
         'footer-text': 'התנועה פתוחה לכל מי שמזדהה עם עקרונות החזון הפדרלי.',
     },
     en: {
-        'page-title': 'Federal Future - Common Denominator',
+        'page-title': 'A Federal Future - Shared Foundation',
         'logo-alt': 'Federal Future Logo',
-        'logo-text': 'Federal Future - Common Denominator',
+        'logo-text': 'A Federal Future - Shared Foundation',
         'nav-about': 'About',
         'nav-plan': 'Vision',
         'nav-events': 'Events',
