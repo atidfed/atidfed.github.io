@@ -560,6 +560,13 @@ nav {
     cursor: default;
 }
 
+.aspect-card-icon {
+    font-size: 1.8rem;
+    color: var(--m-dark);
+    margin-bottom: 0.5rem;
+    opacity: 0.85;
+}
+
 .aspect-card-subtitle {
     display: block;
     font-size: 0.75rem;
