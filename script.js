@@ -1,9 +1,11 @@
 // Translations
+const SITE_NAME = {he: 'עתיד פדרלי - מכנה משותף', en: 'A Federal Future - Shared Foundation' };
+
 const translations = {
     he: {
-        'page-title': 'עתיד פדרלי - מכנה משותף',
+        'page-title': SITE_NAME.he,
         'logo-alt': 'עתיד פדרלי לוגו',
-        'logo-text': 'עתיד פדרלי - מכנה משותף',
+        'logo-text': SITE_NAME.he,
         'nav-about': 'עלינו',
         'nav-plan': 'החזון',
         'nav-events': 'אירועים',
@@ -85,14 +87,14 @@ const translations = {
         'resource3-btn': 'למאמר המלא',
         'cta-h2': 'בואו לעשות היסטוריה.',
         'cta-p': 'הכוח לשנות נמצא בידיים שלנו. השאירו פרטים ונחזור אליכם עם דרכים להשפיע בשטח ובדיגיטל.',
-        'footer-logo-text': 'עתיד פדרלי - מכנה משותף',
+        'footer-logo-text': SITE_NAME.he,
         'footer-logo-alt': 'עתיד פדרלי לוגו',
         'footer-text': 'התנועה פתוחה לכל מי שמזדהה עם עקרונות החזון הפדרלי.',
     },
     en: {
-        'page-title': 'A Federal Future - Shared Foundation',
+        'page-title': SITE_NAME.en,
         'logo-alt': 'Federal Future Logo',
-        'logo-text': 'A Federal Future - Shared Foundation',
+        'logo-text': SITE_NAME.en,
         'nav-about': 'About',
         'nav-plan': 'Vision',
         'nav-events': 'Events',
@@ -174,7 +176,7 @@ const translations = {
         'resource3-btn': 'Read the Full Article',
         'cta-h2': "Let's make history.",
         'cta-p': "The power to change is in our hands. Leave your details and we'll get back to you with ways to make an impact in the field and online.",
-        'footer-logo-text': 'Federal Future - Common Denominator',
+        'footer-logo-text': SITE_NAME.en,
         'footer-logo-alt': 'Federal Future Logo',
         'footer-text': 'The movement is open to anyone who identifies with the principles of the federal vision.',
     }
