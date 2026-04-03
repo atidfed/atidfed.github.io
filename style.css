@@ -607,7 +607,7 @@ nav {
 }
 
 .aspect-card--expandable[aria-expanded="true"] .aspect-card-body {
-    max-height: 500px;
+    max-height: 1000px;
     margin-top: 1rem;
 }
 
