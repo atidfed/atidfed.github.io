@@ -223,9 +223,9 @@ function applyLanguage(lang) {
         btn.classList.toggle('active', btn.dataset.lang === lang);
     });
 
-    // Persist language in URL query param (?lang=en); omit param for default Hebrew
+    // Persist language in URL query param (?lang=he); omit param for default English
     const params = new URLSearchParams(window.location.search);
-    if (lang === 'he') {
+    if (lang === 'en') {
         params.delete('lang');
     } else {
         params.set('lang', lang);
@@ -244,11 +244,9 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     });
 });
 
-// Initialize language from URL on page load
+// Initialize language from URL on page load; default is English
 const urlLang = new URLSearchParams(window.location.search).get('lang');
-if (urlLang === 'en' || urlLang === 'he') {
-    applyLanguage(urlLang);
-}
+applyLanguage(urlLang === 'he' ? 'he' : 'en');
 
 // Scroll Reveal Animation
 const observerOptions = {
