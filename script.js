@@ -1,5 +1,5 @@
 // Translations
-const SITE_NAME = {he: 'עתיד פדרלי - מכנה משותף', en: 'A Federal Future - Shared Foundation' };
+const SITE_NAME = {he: 'עתיד פדרלי - מכנה משותף', en: 'A Federal Future' };
 
 const translations = {
     he: {
@@ -182,7 +182,7 @@ const translations = {
     }
 };
 
-let currentLang = 'he';
+let currentLang = 'en';
 
 function applyLanguage(lang) {
     const t = translations[lang];
