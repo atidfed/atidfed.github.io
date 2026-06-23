@@ -195,7 +195,7 @@ function renderResources(lang) {
     grid.innerHTML = [...resourcesData.resources].reverse().map(r => {
         const t = r[lang] || r['he'];
         const logoHtml = r.logo
-            ? `<img src="${r.logo}" alt="" class="resource-logo" style="max-height: 40px; margin-bottom: 0.75rem;">`
+            ? `<img src="${r.logo}" alt="" class="resource-logo" style="max-height: 28px; margin-bottom: 0.75rem;">`
             : '';
         const dateStr = formatResourceDate(r.date, lang);
         const dateHtml = dateStr
