@@ -732,8 +732,8 @@ nav {
 }
 
 .resource-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
 }
 
@@ -759,11 +759,24 @@ nav {
 
 .resource-btn {
     font-size: 0.9rem;
-    padding: 0.4rem 1.2rem;
-    background: var(--m-blue);
-    color: white;
-    border-radius: 20px;
+    font-weight: 600;
+    color: var(--m-blue);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.resource-title {
+    font-size: 1.05rem;
     font-weight: 700;
+    margin-bottom: 0.35rem;
+    color: var(--m-dark);
+    line-height: 1.4;
+}
+
+.resource-date {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.75rem;
 }
 
 /* CTA Section */

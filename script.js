@@ -79,12 +79,6 @@ const translations = {
         'event4-h4': 'אירועי הסברה',
         'event4-p': 'מפגשים פתוחים ושיחות עומק בברים, באוניברסיטאות ובמרכזים קהילתיים ברחבי הארץ והאזור.',
         'resources-h3': 'רוצים לצלול לפרטים?',
-        'resource1-p': 'אמנת התנועה המשותפת, שנוסחה בשיתוף עם התנועה הפלסטינית המקבילה, התקבלה ב-22 בפברואר 2026 במהלך מפגש כלל הפעילים שנערך במזרח ירושלים, בבית שגריר האיחוד האירופי.',
-        'resource1-btn': 'לקריאת מסמך האמנה המלא',
-        'resource2-p': 'יאיר גורני, ראש צוות המדיניות בתנועה, פרסם מאמר במגזין Europe in the World תחת הכותרת: "As Israelis and Palestinians, We Shall Go Together to Brussels" — קריאה משותפת לישראלים ולפלסטינים לפעול יחד בזירה האירופית.',
-        'resource2-btn': 'למעבר לכתבה',
-        'resource3-p': 'מאמר שפורסם בכתב עת העוסק בפדרליזם, המתמקד בפעילות התנועה, תחת הכותרת: "Anatomy of a Conflict: Architecture of a Solution: An Israeli-Palestinian Partnership Towards Levantine Federalism."',
-        'resource3-btn': 'למאמר המלא',
         'cta-h2': 'בואו לעשות היסטוריה.',
         'cta-p': 'הכוח לשנות נמצא בידיים שלנו. השאירו פרטים ונחזור אליכם עם דרכים להשפיע בשטח ובדיגיטל.',
         'footer-logo-text': SITE_NAME.he,
@@ -167,13 +161,7 @@ const translations = {
         'event4-alt': 'Advocacy Events',
         'event4-h4': 'Advocacy Events',
         'event4-p': 'Open meetings and in-depth conversations in bars, universities, and community centers throughout the country and region.',
-        'resources-h3': 'Want to dive into the details?',
-        'resource1-p': 'The joint movement charter, formulated in partnership with the Palestinian counterpart movement, was adopted on February 22, 2026, during a plenary meeting of all activists held in East Jerusalem, at the residence of the EU Ambassador.',
-        'resource1-btn': 'Read the Full Charter Document',
-        'resource2-p': 'Yair Gorni, Head of the Policy Team in the movement, published an article in the Europe in the World magazine under the title: "As Israelis and Palestinians, We Shall Go Together to Brussels" — a joint call for Israelis and Palestinians to act together in the European arena.',
-        'resource2-btn': 'Go to the Article',
-        'resource3-p': 'An article published in a journal dealing with federalism, focusing on the movement\'s activities, under the title: "Anatomy of a Conflict: Architecture of a Solution: An Israeli-Palestinian Partnership Towards Levantine Federalism."',
-        'resource3-btn': 'Read the Full Article',
+        'resources-h3': 'Want to dive into details?',
         'cta-h2': "Let's make history.",
         'cta-p': "The power to change is in our hands. Leave your details and we'll get back to you with ways to make an impact in the field and online.",
         'footer-logo-text': SITE_NAME.en,
@@ -183,6 +171,45 @@ const translations = {
 };
 
 let currentLang = 'en';
+let resourcesData = null;
+
+function formatResourceDate(dateStr, lang) {
+    if (!dateStr) return '';
+    const parts = dateStr.split('-');
+    const year = parts[0];
+    const month = parts[1] ? parseInt(parts[1], 10) : null;
+    const day = parts[2] ? parseInt(parts[2], 10) : null;
+    if (!month) return year;
+    const monthNamesEn = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const monthNamesHe = ['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
+    if (lang === 'he') {
+        return day ? `${day} ב${monthNamesHe[month - 1]} ${year}` : `${monthNamesHe[month - 1]} ${year}`;
+    }
+    return day ? `${monthNamesEn[month - 1]} ${day}, ${year}` : `${monthNamesEn[month - 1]} ${year}`;
+}
+
+function renderResources(lang) {
+    if (!resourcesData) return;
+    const grid = document.getElementById('resource-grid');
+    if (!grid) return;
+    grid.innerHTML = [...resourcesData.resources].reverse().map(r => {
+        const t = r[lang] || r['he'];
+        const logoHtml = r.logo
+            ? `<img src="${r.logo}" alt="" class="resource-logo" style="max-height: 40px; margin-bottom: 0.75rem;">`
+            : '';
+        const dateStr = formatResourceDate(r.date, lang);
+        const dateHtml = dateStr
+            ? `<div class="resource-date">${dateStr}</div>`
+            : '';
+        return `<a href="${r.link}" target="_blank" class="resource-card" style="background: ${r.cardBackground}; border-top: 6px solid ${r.cardBorderColor}; align-items: flex-start; text-align: right;">
+            ${logoHtml}
+            <div class="resource-title">${t.title}</div>
+            ${dateHtml}
+            <p style="font-size: 1rem; line-height: 1.7;">${t.description}</p>
+            <div class="resource-btn" style="margin-top: 1.25rem;">${lang === 'he' ? 'להמשך קריאה...' : 'Read more...'}</div>
+        </a>`;
+    }).join('');
+}
 
 function applyLanguage(lang) {
     const t = translations[lang];
@@ -234,6 +261,7 @@ function applyLanguage(lang) {
     history.replaceState(null, '', window.location.pathname + newSearch + window.location.hash);
 
     currentLang = lang;
+    renderResources(lang);
 }
 
 document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -247,6 +275,14 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 // Initialize language from URL on page load; default is English
 const urlLang = new URLSearchParams(window.location.search).get('lang');
 applyLanguage(urlLang === 'he' ? 'he' : 'en');
+
+fetch('resources.json')
+    .then(r => r.json())
+    .then(data => {
+        resourcesData = data;
+        renderResources(currentLang);
+    })
+    .catch(err => console.error('Failed to load resources.json:', err));
 
 // Scroll Reveal Animation
 const observerOptions = {
