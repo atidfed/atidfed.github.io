@@ -48,7 +48,7 @@ Fonts: **Heebo** (body) and **Rubik** (headings) from Google Fonts. Mobile break
 1. Header/nav — sticky with scroll-shrink effect; nav links: עלינו, החזון, אירועים, מידע נוסף, הצטרפות; language switcher (`EN | עב`) always on physical left
 2. Hero — yellow background
 3. About (`#about`) — "who we are" diagram (two youth movements + joint HQ) + three message-cards with background images
-4. Blueprint (`#plan`) — three-stage roadmap (cards + SVG arrows) + 10 aspect-cards; stage 2 links to `docs/Federal_Charter_Final_Draft.pdf`
+4. Blueprint (`#plan`) — three-stage roadmap (cards + SVG arrows) + 10 aspect-cards; stage 2 links to `docs/charter/Federal Charter Eng_Heb.pdf`
 5. Events (`#events`) — 4 image-cards grid + resources banner (`#resources`) with 3 resource-cards (PDF, external article, journal article)
 6. CTA (`#join`) — embedded Google Form iframe (no custom form fields)
 7. Footer — logo, Instagram social link, tagline
