@@ -4,6 +4,7 @@ const SITE_NAME = {he: 'עתיד פדרלי - מכנה משותף', en: 'A Feder
 const translations = {
     he: {
         'page-title': SITE_NAME.he,
+        'meta-description': 'עתיד פדרלי הינה תנועה משותפת לצעירים ישראלים ופלסטינים, הבונה אלטרנטיבה פדרלית, פרקטית ואופטימית - מברית אינטרסים מקומית ועד לפדרציה לבנטינית.',
         'logo-alt': 'עתיד פדרלי לוגו',
         'logo-text': SITE_NAME.he,
         'nav-about': 'עלינו',
@@ -87,6 +88,7 @@ const translations = {
     },
     en: {
         'page-title': SITE_NAME.en,
+        'meta-description': 'A Federal Future is a joint movement of Israeli and Palestinian youth, building a federal, practical, and optimistic alternative - from a local alliance of interests to a Levantine federation.',
         'logo-alt': 'Federal Future Logo',
         'logo-text': SITE_NAME.en,
         'nav-about': 'About',
@@ -220,6 +222,12 @@ function applyLanguage(lang) {
 
     // Update page title
     document.title = t['page-title'];
+
+    // Update meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+        metaDescription.setAttribute('content', t['meta-description']);
+    }
 
     // Update elements with text content
     document.querySelectorAll('[data-i18n]').forEach(el => {
