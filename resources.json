@@ -2,9 +2,9 @@
   "resources": [
     {
       "id": 1,
-      "link": "docs/charter/Federal Charter Eng_Heb.pdf",
+      "link": "/docs/charter/Federal Charter Eng_Heb.pdf",
       "date": "2026-02-22",
-      "logo": "docs/docs_logos/shaking_hands.webp",
+      "logo": "/docs/docs_logos/shaking_hands.webp",
       "cardBackground": "#EFF6FF",
       "cardBorderColor": "var(--m-blue)",
       "he": {
@@ -18,9 +18,9 @@
     },
     {
       "id": 2,
-      "link": "docs/Supranational Federalism - No 3.pdf",
+      "link": "/docs/Supranational Federalism - No 3.pdf",
       "date": "2026-03",
-      "logo": "docs/docs_logos/Library-SUPRANATIONAL-FEDERALISM-1.webp",
+      "logo": "/docs/docs_logos/Library-SUPRANATIONAL-FEDERALISM-1.webp",
       "cardBackground": "#F0FDF4",
       "cardBorderColor": "#16A34A",
       "he": {
@@ -36,7 +36,7 @@
       "id": 3,
       "link": "https://www.thenewfederalist.eu/as-israelis-and-palestinians-we-shall-go-together-to-brussels",
       "date": "2026-03-04",
-      "logo": "docs/docs_logos/logo-en_the_new_federalist.webp",
+      "logo": "/docs/docs_logos/logo-en_the_new_federalist.webp",
       "cardBackground": "#FFF7ED",
       "cardBorderColor": "var(--m-orange)",
       "he": {
@@ -50,9 +50,9 @@
     },
     {
       "id": 4,
-      "link": "docs/SF  n. 4 - 2026.pdf",
+      "link": "/docs/SF  n. 4 - 2026.pdf",
       "date": "2026-06",
-      "logo": "docs/docs_logos/Library-SUPRANATIONAL-FEDERALISM-1.webp",
+      "logo": "/docs/docs_logos/Library-SUPRANATIONAL-FEDERALISM-1.webp",
       "cardBackground": "#F0FDF4",
       "cardBorderColor": "#16A34A",
       "he": {
@@ -68,7 +68,7 @@
       "id": 5,
       "link": "https://www.thenewfederalist.eu/the-key-to-peace-between-israel-and-palestine-is-education",
       "date": "2026-06-05",
-      "logo": "docs/docs_logos/logo-en_the_new_federalist.webp",
+      "logo": "/docs/docs_logos/logo-en_the_new_federalist.webp",
       "cardBackground": "#FFF7ED",
       "cardBorderColor": "var(--m-orange)",
       "he": {

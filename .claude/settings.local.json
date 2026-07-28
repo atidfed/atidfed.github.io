@@ -16,7 +16,9 @@
       "Bash(mkdir -p used unused)",
       "Bash(mv logo.webp europe_parlament.webp doing_background_2.webp background_decorative_4.webp background_decorative_5.webp 0.webp europe_conference.webp europe_conference_2.webp young_leadership.webp work_teams.webp hasbara_event.webp used/)",
       "Bash(mv background_decorative_1.webp background_decorative_2.webp background_decorative_3.webp doing_background.webp europe_parlament_2.webp unused/)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "PowerShell(Add-Type -AssemblyName System.Drawing; try { $img = [System.Drawing.Image]::FromFile\\(\"C:\\\\repos\\\\atidfed.github.io\\\\images\\\\used\\\\logo.webp\"\\); \"$\\($img.Width\\)x$\\($img.Height\\)\"; $img.Dispose\\(\\) } catch { \"GDI+ cannot read webp: $\\($_.Exception.Message\\)\" })",
+      "Bash(npm start *)"
     ]
   }
 }

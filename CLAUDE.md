@@ -4,16 +4,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is the website for **עתיד פדרלי** ("Federal Future - Common Denominator"), a Hebrew-language political movement/civic engagement platform. It is deployed via GitHub Pages at `atidfed.github.io`.
+This is the website for **עתיד פדרלי** ("Federal Future"), a Hebrew-language political movement/civic engagement platform. It is deployed via GitHub Pages at `atidfed.github.io`.
 
 ## Architecture
 
-The site has three source files and no build system or framework:
+The site is plain static files, no build system or framework:
 
-- `index.html` — all markup
-- `style.css` — all styles (linked via `<link rel="stylesheet">`)
-- `script.js` — all JavaScript (linked via `<script src>` at end of body)
-- Content is in **Hebrew** (`lang="he" dir="rtl"`) by default, with full **English** translation available
+- `index.html` — Hebrew page (`lang="he" dir="rtl"`), served at `/`. This is the canonical/default-language version.
+- `en/index.html` — English page (`lang="en" dir="ltr"`), served at `/en/`. A fully separate, hand-maintained HTML file — see "Bilingual System" below.
+- `style.css` — all styles, shared by both pages (linked via `<link rel="stylesheet">`)
+- `script.js` — all JavaScript, shared by both pages (linked via `<script src>` at end of body)
+- `resources.json` — data for the resources banner cards, fetched client-side by `script.js`
 - Assets: `images/used/` for photos/logo (`.webp`), `docs/` for PDFs
 
 ## Running Locally
@@ -55,17 +56,19 @@ Fonts: **Heebo** (body) and **Rubik** (headings) from Google Fonts. Mobile break
 
 ## Bilingual System (Hebrew / English)
 
-The site supports full Hebrew ↔ English switching without a page reload.
+Hebrew and English are two **separate static pages** (`/index.html` and `/en/index.html`), not a client-side translation toggle. This was a deliberate SEO decision: each language has its own crawlable URL, its own `<title>`/meta description/OG tags, and both are listed with `hreflang` alternates in each page's `<head>` and in `sitemap.xml`, so search engines can index both versions independently instead of relying on JS execution to reveal the English content.
+
+There is **no shared translation data and no build step** — the two files are hand-maintained duplicates. This trades off DRY-ness for simplicity (no build tooling) per an explicit choice made when the split was introduced.
 
 ### How it works
-- Every translatable element has a `data-i18n="key"` attribute (sets `textContent`) or `data-i18n-html="key"` (sets `innerHTML`, for content with embedded tags like `<br>`, `<span>`)
-- Image `alt` attributes use `data-i18n-alt="key"`
-- All translations live in the `translations` object in `script.js` under `he` and `en` keys
-- `applyLanguage(lang)` switches `<html lang>`, `<html dir>` (rtl/ltr), `document.title`, all translated elements, and the active state on the lang buttons
-- The selected language is persisted in the URL as `?lang=en` (Hebrew is the default and omits the param); `history.replaceState` is used so it doesn't create a history entry. On page load, the param is read to restore the language.
+- `index.html` (root) has Hebrew text baked directly into the markup, `<html lang="he" dir="rtl">`.
+- `en/index.html` has the English equivalent baked directly into its markup, `<html lang="en" dir="ltr">`.
+- The language switcher in the header (`.lang-switcher`) is a pair of plain `<a>` links: `href="/en/"` and `href="/"` — clicking causes a real page navigation, not an in-place swap.
+- Because `en/index.html` lives one directory deep, its asset references (`style.css`, `script.js`, `images/...`, `docs/...`, favicon) use **root-relative paths** (`/style.css`, `/images/...`, etc.) so they resolve correctly regardless of nesting. `resources.json`'s `link`/`logo` fields are also root-relative for the same reason, since that data is rendered by the shared `script.js` on both pages.
+- `script.js` determines which language it's running under via `document.documentElement.lang` (`CURRENT_LANG`), used only for picking the right fields out of `resources.json` and formatting resource dates (see `formatResourceDate`).
 
 ### LTR layout overrides (in `style.css`)
-When `html[dir="ltr"]` is active (English), the following physical-direction overrides apply:
+On `en/index.html` (`html[dir="ltr"]`), the following physical-direction overrides apply:
 - `.stage-arrow svg` — removes `scaleX(-1)` flip so arrows point right (→)
 - `.card .num` — moves stage number `01/02/03` from `left` to `right: 20px`
 - `.aspect-card-body p` — `text-align: left`
@@ -73,14 +76,18 @@ When `html[dir="ltr"]` is active (English), the following physical-direction ove
 - `.resource-card` — `text-align: left`
 - `.lang-switcher` — `order: -1` to keep it on the physical left in LTR flex layout
 
-### Adding or editing translations
-1. Add/update the key in both `translations.he` and `translations.en` in `script.js`
-2. Add the corresponding `data-i18n` (or `data-i18n-html` / `data-i18n-alt`) attribute on the HTML element
+### Adding or editing content
+Since there's no shared translation source, every content change must be made **twice** — once in `index.html`, once in `en/index.html` — keeping structure/classes/IDs identical between them so `style.css` and `script.js` behave the same on both.
 
 ## JavaScript Behavior (`script.js`)
 
-- Bilingual i18n system (see above)
-- Language persisted via `?lang=en` URL query param; initialized on page load
+- Fetches `/resources.json` and renders the resource-banner cards via `renderResources(CURRENT_LANG)`
 - Scroll-reveal animations via `IntersectionObserver` on `.reveal` elements
 - Expandable aspect cards toggled via click/keyboard on `.aspect-card--expandable`
 - Sticky header shrink/shadow on scroll past 50px
+
+## SEO
+
+- Each page has its own `<title>`, meta description, canonical URL, `hreflang` alternates (he/en/x-default), Open Graph and Twitter Card tags, and a JSON-LD `Organization` block.
+- `sitemap.xml` lists both `https://atidfed.github.io/` and `https://atidfed.github.io/en/`, each with `xhtml:link` hreflang annotations.
+- `robots.txt` allows all crawlers and points to `sitemap.xml`.

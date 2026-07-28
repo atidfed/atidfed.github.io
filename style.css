@@ -925,6 +925,7 @@ footer {
     cursor: pointer;
     color: var(--m-dark);
     opacity: 0.5;
+    text-decoration: none;
     transition: color 0.2s, opacity 0.2s;
     white-space: nowrap;
 }
