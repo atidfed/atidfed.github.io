@@ -185,6 +185,103 @@ nav {
     z-index: 10;
 }
 
+/* Donate Banner */
+.donate-banner {
+    background-color: var(--m-yellow);
+    padding: 4rem 0;
+}
+
+.donate-card {
+    display: flex;
+    align-items: stretch;
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border: 4px solid var(--m-dark);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 8px 8px 0px var(--m-dark);
+    transition: var(--transition);
+    text-decoration: none;
+    color: var(--m-dark);
+}
+
+.donate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 12px 12px 0px var(--m-dark);
+}
+
+.donate-card__media {
+    flex: 0 0 40%;
+    min-height: 240px;
+    overflow: hidden;
+    border-inline-end: 4px solid var(--m-dark);
+}
+
+.donate-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.donate-card__body {
+    flex: 1;
+    padding: 2rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+}
+
+.donate-card__eyebrow {
+    display: inline-block;
+    background: var(--m-yellow);
+    color: var(--m-dark);
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.9rem;
+    border-radius: 50px;
+}
+
+.donate-card__body h3 {
+    font-size: 1.8rem;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+.donate-card__body p {
+    color: #475569;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin: 0 0 0.3rem 0;
+}
+
+.btn-donate {
+    background: var(--m-red);
+    color: white;
+    font-size: 1rem;
+    padding: 0.7rem 1.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.btn-donate:hover {
+    background: #c0392b;
+    transform: translateY(-3px);
+    box-shadow: 7px 7px 0px var(--m-dark);
+}
+
+.donate-card__domain {
+    color: #64748b;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.1rem;
+}
+
 /* Manifesto */
 .manifesto {
     background-color: #c0392b;
@@ -993,6 +1090,8 @@ html[dir="ltr"] .resource-card {
     .manifesto p { font-size: 1.3rem; }
     .card { padding: 2.5rem 1.5rem; }
     .events-grid { grid-template-columns: 1fr; }
+    .donate-card { flex-direction: column; }
+    .donate-card__media { flex: none; width: 100%; height: 200px; border-inline-end: none; border-bottom: 4px solid var(--m-dark); }
     .grid { grid-template-columns: 1fr; }
     .stage-arrow { padding-top: 0; }
     .stage-arrow svg { transform: rotate(90deg); }
