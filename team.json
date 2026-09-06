@@ -1,0 +1,88 @@
+{
+  "team": [
+    {
+      "id": 1,
+      "image": "/images/used/people/vered_barlev.webp",
+      "email": "",
+      "social": {
+        "instagram": "https://www.instagram.com/vered_barlev/",
+        "facebook": "https://www.facebook.com/vered.barlev",
+        "linkedin": "",
+        "x": ""
+      },
+      "he": {
+        "name": "ורד בר-לב",
+        "role": "מנהלת שותפה",
+        "description": "אשת חינוך, מדיה ופעילה קהילתית. מובילה יוזמות של דיאלוג אזרחי ויוצרת תוכן המקדם תפיסה של 'שלום חיובי' מבוסס מציאות. מאמינה שהחיבור בין קהילות צריך לבוא מעמדה בטוחה, מפוכחת ומלאת חיים — בלי רגשות אשם ובלי התנצלויות. ב'עתיד פדרלי' מחברת בין עשיית שטח, תקשורת יצירתית ואקטיביזם שמייצר שותפות מעצימה וסוחפת."
+      },
+      "en": {
+        "name": "Vered Bar-Lev",
+        "role": "Co-Manager",
+        "description": "An educator, media professional, and community activist. She leads initiatives for civic dialogue and creates content that promotes a 'positive peace' perspective based on reality. She believes that connecting communities should come from a safe, clear-headed, and lively position — without guilt or apologies. At 'Federal Future,' she combines fieldwork, creative communication, and activism that fosters empowering and engaging partnerships."
+      }
+    },
+    {
+      "id": 2,
+      "image": "/images/used/people/nitsan_gatt_2.webp",
+      "email": "",
+      "social": {
+        "instagram": "https://www.instagram.com/nitsangatt/",
+        "facebook": "https://www.facebook.com/nitsan.gatt",
+        "linkedin": "https://www.linkedin.com/in/nitsan-gatt/",
+        "x": ""
+      },
+      "he": {
+        "name": "ניצן גת",
+        "role": "מנהל שותף",
+        "description": "בוגר תואר ראשון בלימודי מזרח תיכון והיסטוריה מהאוניברסיטה העברית. פעיל שלום בעל ניסיון רב בתחומי החינוך הבלתי פורמלי והובלת פרויקטים. מתגורר בחיפה, ומייסד ומוביל את תנועת עתיד פדרלי, הפועלת לקידום פתרון צודק, מעשי ובר-קיימא לסכסוך הישראלי-פלסטיני."
+      },
+      "en": {
+        "name": "Nitsan Gatt",
+        "role": "Co-Manager",
+        "description": "A graduate of the University of Haifa with a bachelor's degree in Middle Eastern studies and history. A peace activist with extensive experience in informal education and project leadership. Based in Haifa, he is the founder and leader of the 'Federal Future' movement, which aims to promote a just, practical, and viable solution to the Israeli-Palestinian conflict."
+      }
+    },
+    {
+      "id": 3,
+      "image": "/images/used/people/yair_gorni.webp",
+      "email": "",
+      "social": {
+        "instagram": "https://www.instagram.com/yairgorni/",
+        "facebook": "https://www.facebook.com/yair.gorni",
+        "linkedin": "https://www.linkedin.com/in/yair-gorni-697245228/",
+        "x": "https://x.com/Gorni_Yair"
+      },
+      "he": {
+        "name": "יאיר גורני",
+        "role": "ראש צווות מדיניות",
+        "description": "חוקר בתחום הלאומיות והסכסוכים האתניים באירופה ובמזרח התיכון, ומשמש כרכז מדיניות בתנועת עתיד פדרלי ישראל, העוסקת בפיתוח מסגרת פדרלית לפתרון הסכסוך. הוא דוקטורנט למדע המדינה באוניברסיטה העברית בירושלים. מחקרו מתמקד בפדרליזם, לאומיות ומודלים של אוטונומיה לאומית בחברות שסועות ובחברות פוסט־אימפריאליות."
+      },
+      "en": {
+        "name": "Yair Gorni",
+        "role": "Policy Team Leader",
+        "description": "A researcher of nationalism and ethnic conflict in Europe and the Middle East and the Policy Officer of the Federalist Future Israel movement, he works on developing a federal framework for conflict resolution. He is a doctoral candidate in Political Science at the Hebrew University of Jerusalem. His research focuses on federalism, nationalism, and models of national autonomy in divided and post-imperial societies."
+      }
+    },
+        {
+      "id": 4,
+      "image": "/images/used/people/dagatz.webp",
+      "email": "",
+      "social": {
+        "instagram": "https://www.instagram.com/daniel_dagatz/",
+        "facebook": "https://www.facebook.com/daniel.guytsabary",
+        "linkedin": "",
+        "x": ""
+      },
+      "he": {
+        "name": "דניאל גיא-צברי",
+        "role": "חבר ועד מנהל",
+        "description": "ממייסדי עתיד פדרלי, פעיל חברתי-פוליטי-אקלימי, מפגין ויזם בתחום השלום, תושב באר-שבע."
+      },
+      "en": {
+        "name": "Daniel Guy-Tsabary",
+        "role": "Board Member",
+        "description": "Co-founder of Federalist Future, a social, political, and climate activist, protester, and peace entrepreneur based in Beersheba."
+      }
+    }
+  ]
+}

@@ -2,6 +2,10 @@
   "name": "atidfed-github-io",
   "private": true,
   "scripts": {
-    "start": "npx serve ."
+    "start": "npx serve .",
+    "webp": "node scripts/to-webp.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.4"
   }
 }

@@ -47,6 +47,43 @@ fetch('/resources.json')
     })
     .catch(err => console.error('Failed to load resources.json:', err));
 
+const SOCIAL_ICONS = {
+    instagram: 'fa-brands fa-instagram',
+    facebook: 'fa-brands fa-facebook-f',
+    linkedin: 'fa-brands fa-linkedin-in',
+    x: 'fa-brands fa-x-twitter'
+};
+
+function renderTeam(lang) {
+    const grid = document.getElementById('team-grid');
+    if (!grid) return;
+    fetch('/team.json')
+        .then(r => r.json())
+        .then(data => {
+            grid.innerHTML = (data.team || []).map(member => {
+                const t = member[lang] || member['he'];
+                const social = member.social || {};
+                const socialLinks = Object.keys(SOCIAL_ICONS)
+                    .filter(key => social[key])
+                    .map(key => `<a href="${social[key]}" target="_blank" rel="noopener noreferrer" class="team-card__social-link" title="${key}"><i class="${SOCIAL_ICONS[key]}"></i></a>`)
+                    .join('');
+                const emailHtml = member.email
+                    ? `<a href="mailto:${member.email}" class="team-card__social-link" title="Email"><i class="fa-solid fa-envelope"></i></a>`
+                    : '';
+                return `<div class="team-card">
+                    <img src="${member.image}" alt="${t.name}" class="team-card__photo" loading="lazy">
+                    <div class="team-card__name">${t.name}</div>
+                    <div class="team-card__role">${t.role}</div>
+                    <p class="team-card__desc">${t.description}</p>
+                    <div class="team-card__socials">${socialLinks}${emailHtml}</div>
+                </div>`;
+            }).join('');
+        })
+        .catch(err => console.error('Failed to load team.json:', err));
+}
+
+renderTeam(CURRENT_LANG);
+
 // Scroll Reveal Animation
 const observerOptions = {
     threshold: 0.1
