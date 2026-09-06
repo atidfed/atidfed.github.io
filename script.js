@@ -29,7 +29,7 @@ function renderResources(lang) {
         const dateHtml = dateStr
             ? `<div class="resource-date">${dateStr}</div>`
             : '';
-        return `<a href="${r.link}" target="_blank" rel="noopener noreferrer" class="resource-card" style="background: ${r.cardBackground}; border-top: 6px solid ${r.cardBorderColor}; align-items: flex-start; text-align: right;">
+        return `<a href="${t.link}" target="_blank" rel="noopener noreferrer" class="resource-card" style="background: ${r.cardBackground}; border-top: 6px solid ${r.cardBorderColor}; align-items: flex-start; text-align: right;">
             ${logoHtml}
             <div class="resource-title">${t.title}</div>
             ${dateHtml}
