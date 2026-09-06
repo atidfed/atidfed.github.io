@@ -549,6 +549,7 @@ nav {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
+    align-items: start;
 }
 
 .team-card {
@@ -559,6 +560,13 @@ nav {
     text-align: center;
     box-shadow: 6px 6px 0px var(--m-dark);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+
+.team-card[aria-expanded="true"] {
+    height: auto;
 }
 
 .team-card:hover {
@@ -591,6 +599,16 @@ nav {
     margin-bottom: 0.75rem;
 }
 
+.team-card__desc-wrap {
+    overflow: hidden;
+    max-height: 62px;
+    transition: max-height 0.4s ease;
+}
+
+.team-card[aria-expanded="true"] .team-card__desc-wrap {
+    max-height: 1000px;
+}
+
 .team-card p.team-card__desc {
     font-size: 0.85rem;
     line-height: 1.5;
@@ -599,11 +617,37 @@ nav {
     margin: 0;
 }
 
+.team-card__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    margin: 0.4rem auto 0;
+    font-size: 0.85rem;
+    color: var(--m-blue);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    border-radius: 50%;
+    transition: var(--transition), transform 0.3s;
+}
+
+.team-card__toggle:hover {
+    background: rgba(18, 116, 206, 0.12);
+}
+
+.team-card[aria-expanded="true"] .team-card__toggle {
+    transform: rotate(180deg);
+}
+
 .team-card__socials {
     display: flex;
     justify-content: center;
     gap: 0.6rem;
-    margin-top: 1.1rem;
+    margin-top: auto;
+    padding-top: 1.1rem;
 }
 
 .team-card__social-link {
@@ -825,7 +869,40 @@ nav {
 
 @media (max-width: 480px) {
     .aspects-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+
+    .aspect-card {
+        padding: 1rem 0.6rem;
+        font-size: 0.9rem;
+        border-radius: 12px;
+        box-shadow: 4px 4px 0px var(--m-dark);
+        height: 132px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .aspect-card-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .aspect-card-icon {
+        font-size: 1.3rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .aspect-card-subtitle {
+        font-size: 0.65rem;
+        margin-top: 0.25rem;
+    }
+
+    .aspect-card-body p {
+        font-size: 0.78rem;
     }
 }
 
@@ -1183,7 +1260,14 @@ html[dir="ltr"] .resource-card {
     .hero h1 { font-size: 4rem; }
     .manifesto p { font-size: 1.3rem; }
     .card { padding: 2.5rem 1.5rem; }
-    .events-grid { grid-template-columns: 1fr; }
+    .events-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+    .event-card { border-width: 3px; border-radius: 16px; box-shadow: 5px 5px 0px var(--m-dark); }
+    .event-card:hover { box-shadow: 7px 7px 0px var(--m-dark); }
+    .event-img-placeholder, .event-img-pair { height: 110px; }
+    .event-img-placeholder { font-size: 0.85rem; padding: 0.8rem; }
+    .event-info { padding: 0.8rem; }
+    .event-info h4 { font-size: 1rem; margin-bottom: 0.3rem; }
+    .event-info p { font-size: 0.75rem; line-height: 1.35; }
     .donate-card { flex-direction: column; }
     .donate-card__media { flex: none; width: 100%; height: 200px; border-inline-end: none; border-bottom: 4px solid var(--m-dark); }
     .grid { grid-template-columns: 1fr; }
@@ -1215,8 +1299,48 @@ html[dir="ltr"] .resource-card {
 
 @media (max-width: 600px) {
     /* Diagram: keep side by side, shrink to fit */
-    .who-boxes { gap: 0.75rem; }
-    .who-box { font-size: 0.85rem; padding: 1rem 0.6rem; max-width: none; }
-    .who-pill { font-size: 0.95rem; border-radius: 40px; padding: 0.9rem 1rem; }
+    .who-boxes { gap: 0.6rem; }
+    .who-box { font-size: 0.7rem; padding: 0.65rem 0.5rem; border-radius: 10px; border-width: 2px; max-width: none; }
+    .who-pill { font-size: 0.85rem; border-radius: 40px; padding: 0.7rem 0.9rem; }
+
+    /* Info cards */
+    .message-card { padding: 1.2rem 1rem; border-radius: 12px; }
+    .message-card__title { font-size: 1.15rem; margin-bottom: 0.35rem; }
+    .message-card__title::after { width: 2rem; margin-top: 0.35rem; }
+    .message-card__body { margin-top: 1rem; }
+    .message-card__body h4 { font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .message-card__body p { font-size: 0.85rem; line-height: 1.5; }
+
+    /* Team */
+    .team-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+    .team-card { padding: 1rem 0.7rem; border-width: 2px; border-radius: 14px; box-shadow: 4px 4px 0px var(--m-dark); height: 300px; }
+    .team-card:hover { box-shadow: 6px 6px 0px var(--m-dark); }
+    .team-card__photo { width: 70px; height: 70px; margin-bottom: 0.6rem; }
+    .team-card__name { font-size: 0.85rem; }
+    .team-card__role { font-size: 0.7rem; margin-bottom: 0.5rem; }
+    .team-card p.team-card__desc { font-size: 0.7rem; line-height: 1.35; }
+    .team-card__desc-wrap { max-height: 54px; }
+    .team-card__social-link { width: 26px; height: 26px; font-size: 0.7rem; }
+    .team-card__socials { gap: 0.4rem; padding-top: 0.7rem; }
+
+    /* Stage cards */
+    .card { padding: 1.5rem 1.2rem; border-width: 2px; border-radius: 16px; box-shadow: 5px 5px 0px var(--m-dark); }
+    .card .num { font-size: 2.2rem; top: 2px; left: 12px; }
+    .card .stage-label { font-size: 0.75rem; margin-bottom: 0.3rem; }
+    .card h3 { font-size: 1.15rem; margin-bottom: 0.6rem; }
+    .btn-charter { font-size: 0.7rem; padding: 0.3rem 0.6rem; margin-top: 0.8rem; box-shadow: 2px 2px 0px var(--m-dark); }
+    .stage-arrow svg { width: 32px; height: 32px; }
+
+    /* Resources banner */
+    .resources-banner { padding: 2rem 1rem; border-radius: 20px; border-width: 3px; box-shadow: 6px 6px 0px var(--m-dark); }
+    .resources-banner h3 { font-size: 1.5rem; margin-bottom: 1.5rem; }
+    .resource-grid { display: flex; flex-direction: column; gap: 1rem; }
+    .resource-card { padding: 0.8rem; border-width: 2px; border-radius: 14px; box-shadow: 3px 3px 0px var(--m-dark); }
+    .resource-card:hover { box-shadow: 5px 5px 0px var(--m-dark); }
+    .resource-logo { max-height: 20px !important; margin-bottom: 0.4rem !important; }
+    .resource-title { font-size: 0.8rem; margin-bottom: 0.25rem; }
+    .resource-date { font-size: 0.65rem; margin-bottom: 0.4rem; }
+    .resource-card p { font-size: 0.7rem !important; line-height: 1.4 !important; }
+    .resource-btn { font-size: 0.7rem; margin-top: 0.6rem !important; }
 }
 

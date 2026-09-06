@@ -57,6 +57,8 @@ const SOCIAL_ICONS = {
 function renderTeam(lang) {
     const grid = document.getElementById('team-grid');
     if (!grid) return;
+    const moreLabel = lang === 'he' ? 'קרא עוד' : 'Read more';
+    const lessLabel = lang === 'he' ? 'קרא פחות' : 'Show less';
     fetch('/team.json')
         .then(r => r.json())
         .then(data => {
@@ -70,16 +72,40 @@ function renderTeam(lang) {
                 const emailHtml = member.email
                     ? `<a href="mailto:${member.email}" class="team-card__social-link" title="Email"><i class="fa-solid fa-envelope"></i></a>`
                     : '';
-                return `<div class="team-card">
+                return `<div class="team-card" aria-expanded="false">
                     <img src="${member.image}" alt="${t.name}" class="team-card__photo" loading="lazy">
                     <div class="team-card__name">${t.name}</div>
                     <div class="team-card__role">${t.role}</div>
-                    <p class="team-card__desc">${t.description}</p>
+                    <div class="team-card__desc-wrap">
+                        <p class="team-card__desc">${t.description}</p>
+                    </div>
+                    <button type="button" class="team-card__toggle" data-more="${moreLabel}" data-less="${lessLabel}" aria-label="${moreLabel}" title="${moreLabel}"><i class="fa-solid fa-chevron-down"></i></button>
                     <div class="team-card__socials">${socialLinks}${emailHtml}</div>
                 </div>`;
             }).join('');
+            requestAnimationFrame(() => initTeamToggles(grid));
         })
         .catch(err => console.error('Failed to load team.json:', err));
+}
+
+function initTeamToggles(grid) {
+    grid.querySelectorAll('.team-card').forEach(card => {
+        const wrap = card.querySelector('.team-card__desc-wrap');
+        const desc = card.querySelector('.team-card__desc');
+        const btn = card.querySelector('.team-card__toggle');
+        if (!wrap || !desc || !btn) return;
+        if (desc.scrollHeight <= wrap.clientHeight + 1) {
+            btn.remove();
+            return;
+        }
+        btn.addEventListener('click', () => {
+            const expanded = card.getAttribute('aria-expanded') === 'true';
+            card.setAttribute('aria-expanded', String(!expanded));
+            const label = expanded ? btn.dataset.more : btn.dataset.less;
+            btn.setAttribute('aria-label', label);
+            btn.setAttribute('title', label);
+        });
+    });
 }
 
 renderTeam(CURRENT_LANG);
