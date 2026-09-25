@@ -873,12 +873,16 @@ nav {
         gap: 0.8rem;
     }
 
+    .aspect-card--expandable[aria-expanded="true"] {
+        grid-column: 1 / -1;
+    }
+
     .aspect-card {
         padding: 1rem 0.6rem;
         font-size: 0.9rem;
         border-radius: 12px;
         box-shadow: 4px 4px 0px var(--m-dark);
-        height: 132px;
+        min-height: 132px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1268,8 +1272,14 @@ html[dir="ltr"] .resource-card {
     .event-info { padding: 0.8rem; }
     .event-info h4 { font-size: 1rem; margin-bottom: 0.3rem; }
     .event-info p { font-size: 0.75rem; line-height: 1.35; }
-    .donate-card { flex-direction: column; }
-    .donate-card__media { flex: none; width: 100%; height: 200px; border-inline-end: none; border-bottom: 4px solid var(--m-dark); }
+    .donate-banner { padding: 2.5rem 0; }
+    .donate-card { flex-direction: column; border-radius: 18px; box-shadow: 6px 6px 0px var(--m-dark); }
+    .donate-card__media { flex: none; width: 100%; height: 140px; min-height: 0; border-inline-end: none; border-bottom: 4px solid var(--m-dark); }
+    .donate-card__body { padding: 1.2rem 1.3rem; gap: 0.5rem; }
+    .donate-card__eyebrow { font-size: 0.75rem; padding: 0.25rem 0.75rem; }
+    .donate-card__body h3 { font-size: 1.3rem; }
+    .donate-card__body p { font-size: 0.9rem; }
+    .btn-donate { font-size: 0.9rem; padding: 0.6rem 1.4rem; }
     .grid { grid-template-columns: 1fr; }
     .stage-arrow { padding-top: 0; }
     .stage-arrow svg { transform: rotate(90deg); }
