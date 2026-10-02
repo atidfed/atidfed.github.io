@@ -84,6 +84,23 @@
         "description": "Nadav Lowenstein, from our Policy Team, published an article in The New Federalist magazine, where he puts a spotlight on education and the broader context of the conflict.",
         "link": "https://www.thenewfederalist.eu/the-key-to-peace-between-israel-and-palestine-is-education"
       }
+    },
+    {
+      "id": 6,
+      "date": "2026-09-29",
+      "logo": "/docs/docs_logos/logo-en_the_new_federalist.webp",
+      "cardBackground": "#FFF7ED",
+      "cardBorderColor": "var(--m-orange)",
+      "he": {
+        "title": "Between Knafeh and Challah : Mixed Families Between Identity, Pain, and Hope",
+        "description": "עדן ראסולי פרסמה מאמר במגזין The New Federalist, העוסק במשפחות מעורבות ובזהויות השונות בארץ שלנו.",
+        "link": "https://www.thenewfederalist.eu/between-knafeh-and-challah-mixed-families-between-identity-pain-and-hope"
+      },
+      "en": {
+        "title": "Between Knafeh and Challah : Mixed Families Between Identity, Pain, and Hope",
+        "description": "Eden Rassuly published an article in The New Federalist magazine, about mixed families and identities in our land.",
+        "link": "https://www.thenewfederalist.eu/between-knafeh-and-challah-mixed-families-between-identity-pain-and-hope"
+      }
     }
   ]
 }
