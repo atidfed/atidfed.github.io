@@ -137,29 +137,19 @@ document.querySelectorAll('.aspect-card--expandable').forEach(card => {
     });
 });
 
-// Keep collapsed aspect cards the same height, regardless of text length
-function equalizeAspectCardHeights() {
-    const cards = document.querySelectorAll('.aspect-card--expandable');
-    if (!cards.length) return;
-    cards.forEach(card => { card.style.minHeight = ''; });
-    let max = 0;
-    cards.forEach(card => {
-        if (card.getAttribute('aria-expanded') !== 'true') {
-            max = Math.max(max, card.getBoundingClientRect().height);
-        }
-    });
-    cards.forEach(card => { card.style.minHeight = `${max}px`; });
+// Keep all collapsed aspect cards the same height: size every header to the tallest one.
+const aspectGrid = document.querySelector('.aspects-grid');
+function equalizeAspectCards() {
+    if (!aspectGrid) return;
+    aspectGrid.style.removeProperty('--aspect-header-h');
+    const headers = aspectGrid.querySelectorAll('.aspect-card-header');
+    const tallest = Math.max(...[...headers].map(h => h.offsetHeight));
+    if (tallest > 0) aspectGrid.style.setProperty('--aspect-header-h', tallest + 'px');
 }
-
-equalizeAspectCardHeights();
-let aspectResizeTimer;
-window.addEventListener('resize', () => {
-    clearTimeout(aspectResizeTimer);
-    aspectResizeTimer = setTimeout(equalizeAspectCardHeights, 150);
-});
-if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(equalizeAspectCardHeights);
-}
+equalizeAspectCards();
+window.addEventListener('resize', equalizeAspectCards);
+window.addEventListener('load', equalizeAspectCards);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(equalizeAspectCards);
 
 // Sticky Header effect
 window.addEventListener('scroll', () => {
